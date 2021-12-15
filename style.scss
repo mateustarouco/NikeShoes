@@ -1,16 +1,22 @@
-body{
-  background: #131313!important;
+body {
+  background: #131313 !important;
   width: 100vw;
   height: 100vh;
 }
-.container{
+
+.container {
   height: 100%;
-  .row{
+  min-width: 100vw;
+
+  .row {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    .col{
+    width: 100%;
+
+    .col {
+      width: 100%;
       position: relative;
       display: flex;
       align-items: center;
@@ -18,11 +24,148 @@ body{
       color: white;
       flex-wrap: wrap;
       transform-style: preserve-3d;
-      .box{
+
+      .box {
         position: relative;
         width: 300px;
         height: 400px;
         margin: 40px;
+        background: #232323;
+        border-radius: 20px;
+        transform-style: preserve-3d;
+
+        .name {
+          position: absolute;
+          top: 0;
+          left: 0;
+          text-align: center;
+          color: white;
+          width: 100%;
+          transform: translate3d(0, 0, 75px);
+          transform-style: preserve-3d;
+          transition: .5s;
+          opacity: 0;
+          z-index: 10;
+        }
+
+        .buy {
+          position: absolute;
+          bottom: 0;
+          left: 90px;
+          transform: translate3d(-50, 0, 75px);
+          transform-style: preserve-3d;
+          color: #fff;
+          background: #333;
+          padding: 10px 25px;
+          border-radius: 30px;
+          text-decoration: none;
+          transition: .5s;
+          opacity: 0;
+          z-index: 10;
+        }
+
+        .circle {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          background: #ffffff;
+          border-radius: 50%;
+          width: 200px;
+          height: 200px;
+          transition: .5s;
+          transform-style: preserve-3d;
+          transform: translate3d(-50%, -50%, 50px);
+          z-index: 10;
+        }
+
+        .product {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 250px;
+          transition: .5s;
+          z-index: 15;
+          transform-style: preserve-3d;
+          transform: translate3d(-50%, -50%, 50px) rotate(0deg);
+        }
+
+        #red {
+          background: rgb(225, 0, 61);
+        }
+
+        #green {
+          background: rgb(0, 222, 106);
+        }
+
+        #brown {
+          background: rgb(188, 124, 70);
+        }
+
+      }
+
+      .box:hover .name {
+        top: 40px;
+        opacity: 1;
+      }
+
+      .box:hover .buy {
+        bottom: 40px;
+        opacity: 1;
+        box-shadow: 10px 10px 30px rgba(19, 19, 19, 0.76),
+        inset 2px 2px 5px #3b3b3b,
+        inset 10px 10px 50px #262626;
+      }
+
+      .box:hover #red{
+        box-shadow: 10px 10px 30px rgba(19, 19, 19, 0.76),
+        inset 2px 2px 5px rgb(238, 0, 63),
+        inset 10px 10px 50px rgb(187, 0, 50);
+      }
+      .box:hover #green{
+        box-shadow: 10px 10px 30px rgba(19, 19, 19, 0.76),
+        inset 2px 2px 5px rgb(0, 231, 110),
+        inset 10px 10px 50px rgb(0, 166, 82);
+      }
+      .box:hover #brown{
+        box-shadow: 10px 10px 30px rgba(19, 19, 19, 0.76),
+        inset 2px 2px 5px rgb(208, 140, 82),
+        inset 10px 10px 50px rgb(157, 100, 52);
+      }
+
+      .box:hover .product {
+        transform: translate3d(-50%, -50%, 100px) rotate(-15deg);
+
+      }
+
+      .box:before {
+        content: 'NIKE';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 6rem;
+        font-weight: 900;
+        color: white;
+        font-style: italic;
+        opacity: 0;
+        transition: .5s;
+      }
+
+      .box:after {
+        content: 'SHOES';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 5rem;
+        font-weight: 900;
+        color: white;
+        font-style: italic;
+        opacity: 0;
+        transition: .5s;
+      }
+
+      .box:hover::before,
+      .box:hover::after {
+        opacity: .04;
       }
     }
   }
